@@ -1,6 +1,6 @@
 const Element = {
   data() {
-    return {};
+    return {}
   },
   template: `
   <li>
