@@ -5,11 +5,17 @@ const Element = {
   template: `
   <li>
     <span>{{text}}</span>
-    <button> Supprimer </button>
+    <button @click="remove()"> Supprimer </button>
     <button> Modifier </button>
   </li>
   `,
-  props: ['text'],
+  props: ["text", "index"],
+  methods: {
+    remove() {
+      this.$emit("remove", { index : this.index });
+    },
+  },
+  emits : ["remove"]
 };
 
 export default Element;
