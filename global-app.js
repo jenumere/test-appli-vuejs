@@ -3,7 +3,7 @@ import Element from './element.js';
 const GlobalApp = {
   data() {
     return {
-      element: [],
+      elements: [],
     };
   },
   components: {
@@ -12,9 +12,15 @@ const GlobalApp = {
   template: `
   <button @click="add()">Ajouter un élément</button>
   <ul>
-    <li v-for="(element, index) in elements" :key="index">{{elements}}</li>
+    <Element v-for="(element, index) in elements" :key="index" :text="element" />
   </ul>
   `,
+  methods : {
+    add(){
+      var element = "Element " + (this.elements.length + 1);
+      this.elements.push(element);
+    }
+  }
 };
 
 export default GlobalApp;
